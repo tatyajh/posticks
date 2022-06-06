@@ -3,12 +3,15 @@ import Note from './Note';
 
 const NoteList = () => {
     return (
-        <div class="flex flex-col space-y-4 ...">
-            <Note />
-            <Note />
-            <Note />
-        </div>
-       
+     
+     <div class='notes-list'>
+        <Note />
+        <Note />
+        <Note />
+        <Note />
+        <Note />
+    </div>
+              
     );
 };
 

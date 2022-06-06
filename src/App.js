@@ -4,11 +4,10 @@ import NotesList  from  './components/NotesList';
 const App = () => {
   
   return (
-   <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-6 gap-4">
        <NotesList />
    </div>
-  
-   
+    
   );
 };
 

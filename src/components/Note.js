@@ -6,11 +6,10 @@ const Note = () => {
     return (
         <div className='note'>
             <span>Hello! This is Our first sticky note yay!</span>
-            <div className='container mx-auto'>
+            <div className='note-footer'>
                 <small>04/06/2022</small>
-                <MdDeleteForever className='delete-icon' size='1.3em'/>
-                <button className="btn btn-blue btn-blue:hover">Botón</button>
-                
+               <MdDeleteForever className='delete-icon' size='1.3em'/>
+                 
            </div>                               
         </div>
        
