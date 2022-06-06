@@ -1,17 +1,19 @@
-const AddNote = () => {
+import React from "react";
+
+function AddNote() {
     return (
         <div className='note new'>
             <textarea
-                rows = '4'
-                cols = '4'
+                rows='4'
+                cols='4'
                 placeholder='Type note...'
             ></textarea>
             <div className="note-footer">
-                <small>100 Remaining</small>  
-                <button className="save">SAVE</button>  
-            </div>    
+                <small>100 Remaining</small>
+                <button className="save">SAVE</button>
+            </div>
         </div>
     );
-};
+}
 
 export default AddNote;
