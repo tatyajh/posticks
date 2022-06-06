@@ -5,9 +5,9 @@
 
 .note {
     @apply bg-yellow-100 ;
-    @apply rounded-3xl;
+    @apply rounded-md;
     @apply pt-4;
-    @apply h-40;
+    @apply h-44;
     @apply justify-between;
     @apply flex;
     @apply flex-col;
@@ -16,7 +16,7 @@
 
 .note-footer{
     @apply flex; 
-    @apply items-center;
+    @apply items-baseline;
     @apply justify-between;
 }
 
@@ -25,6 +25,9 @@
     @apply gap-x-4;
     @apply gap-y-4;
     @apply grid-cols-auto-fit;
-    
-    
+}
+
+.container{
+    @apply max-w-5xl mx-auto px-4;
+
 }
