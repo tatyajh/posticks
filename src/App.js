@@ -6,7 +6,11 @@ import Search from './components/Search';
 import Header from './components/Header';
 
 function App() {
-	const [notes, setNotes] = useState([
+	const [notes, setNotes] = useState(() => {
+		const saved = localStorage.getItem('posticks-data');
+		const initialValue = JSON.parse(saved);
+		return initialValue || [
+
 		{
 			id: nanoid(),
 			text: 'First quote!',
@@ -22,22 +26,12 @@ function App() {
 			text: 'Lastest Sticky!',
 			date: '01/06/2022',
 		},
-	]);
+
+	]
+});
 
 	const [searchText, setSearchText] = useState('');
-
 	const [darkMode, setDarkMode] = useState(false);
-
-	useEffect(() => {
-		const savedNotes = JSON.parse(
-			localStorage.getItem('posticks-data')
-		);
-
-		if (savedNotes) {
-			setNotes(savedNotes);
-		}
-	}, []);
-	
 
 	useEffect(() => {
 		localStorage.setItem(
@@ -61,7 +55,7 @@ function App() {
 
 	function updateNote (text){
 		const edit = {
-			
+
 		}
 
 	}
