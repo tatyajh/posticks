@@ -30,7 +30,7 @@
 
 .note-new{
     @apply bg-orange-300;
-    @apply rounded-xl p-8 min-h-full;
+    @apply rounded-xl p-4 min-h-full;
     @apply flex flex-col;
     @apply justify-items-start;
     @apply whitespace-pre-wrap;
@@ -54,6 +54,11 @@ textarea:focus{
 
 }
 
+.update-icon{
+    @apply cursor-pointer;
+ 
+ }
+
 .search{
     @apply flex items-center bg-gray-300 rounded-xl p-1.5 mb-6;
 }
@@ -68,10 +73,6 @@ textarea:focus{
 
 .dark-mode {
     @apply bg-black;
-}
-
-.dark-mode h4 {
-    @apply text-white;
 }
 
 .header{
