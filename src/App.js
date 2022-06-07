@@ -1,63 +1,79 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-import NotesList  from  './components/NotesList';
+import NotesList from './components/NotesList';
+import Search from './components/Search';
+import Header from './components/Header';
 
 function App() {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: 'This is my first note',
-      date: '1/6/2022',
+      text: 'First note!',
+      date: '15/07/2021',
     },
     {
       id: nanoid(),
-      text: 'This is my second note',
-      date: '2/6/2022',
+      text: 'Second note!',
+      date: '18/04/2020',
     },
+    
     {
       id: nanoid(),
-      text: 'This is my third note',
-      date: '3/6/2022',
-    },
-    {
-      id: nanoid(),
-      text: 'This is my fourth note',
-      date: '4/6/2022',
-    },
-
-    {
-      id: nanoid(),
-      text: 'This is my new note',
-      date: '5/6/2022',
+      text: 'Latest note!',
+      date: '30/04/2021',
     },
   ]);
 
-    function addNote(text) {
-       const date = new Date();
-       const newNote = {
-         id: nanoid(),
-         text: text,
-         date: date.toLocaleDateString()
-      };
-      const newNotes = [...notes, newNote];
-        setNotes(newNotes);
-    };
+  const [searchText, setSearchText] = useState('');
 
-    const deleteNote = (id) => {
-        const newNotes = notes.filter((note) => note.id !== id);
-        setNotes(newNotes);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(
+      localStorage.getItem('posticks-data')
+    );
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      'react-notes-app-data',
+      JSON.stringify(notes)
+    );
+  }, [notes]);
+
+  const addNote = (text) => {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString(),
     };
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  };
+
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
 
   return (
-    <div className="container">
-      <NotesList
-        notes={notes} 
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-        />
+    <div className={`${darkMode && 'dark-mode'}`}>
+      <div className='container'>
+        <Header handleToggleDarkMode={setDarkMode} />
+        <Search handleSearchNote={setSearchText} />
+        <NotesList
+          notes={notes.filter((note) => note.text.toLowerCase().includes(searchText)
+          )}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote} />
+      </div>
     </div>
-
   );
 }
 
