@@ -1,11 +1,15 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "es6": true, 
+        "node": true, 
+        "mocha": true 
     },
     "extends": [
         "plugin:react/recommended",
         "airbnb",
+        "airbnb/hooks",
         "prettier"
     ],
     "parserOptions": {
@@ -20,6 +24,9 @@
         "prettier"
     ],
     "rules": {
-       "prettier/prettier": "error"
+       "prettier/prettier": "error",
+       "no-console": "warn", 
+       "no-use-before-define": "warn", 
+       "spaced-comment": "warn" 
     }
 }

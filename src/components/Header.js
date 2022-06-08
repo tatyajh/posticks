@@ -3,7 +3,6 @@ import { CgTrashEmpty, CgTrash } from 'react-icons/cg';
 import { TbTrashX } from 'react-icons/tb';
 
 const Header = ({
-  handleToggleDarkMode,
   handleTrashBin,
   binIsEmpty,
   trashBinMode,
@@ -13,15 +12,8 @@ const Header = ({
   const DeleteIcon = binIsEmpty ? CgTrashEmpty : CgTrash;
   return (
     <div className="header">
-      <button
-        onClick={() =>
-          handleToggleDarkMode((previousDarkMode) => !previousDarkMode)
-        }
-        className="btn dark-btn dark-btn:hover"
-      >
-        POSTICKS
-      </button>
-	  {trashBinMode && !binIsEmpty &&(<TbTrashX  onClick={clearTrashBin}/>)}
+      <h6> POST ITS NOTES </h6>
+      {trashBinMode && !binIsEmpty && <TbTrashX onClick={clearTrashBin} />}
       <DeleteIcon
         onClick={() =>
           handleTrashBin((previousTrashBinMode) => !previousTrashBinMode)

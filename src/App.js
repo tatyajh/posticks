@@ -31,7 +31,6 @@ function App() {
   });
 
   const [searchText, setSearchText] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
   const [trashBinMode, setTrashBinMode] = useState(false);
 
   useEffect(() => {
@@ -93,20 +92,17 @@ function App() {
   };
 
   const clearTrashBin = () => {
-  
-      const newNotes = notes.filter((note) => !note.deleted);
-      setNotes(newNotes);
-    
+    const newNotes = notes.filter((note) => !note.deleted);
+    setNotes(newNotes);
   };
   return (
-    <div className={`${darkMode && 'dark-mode'}`}>
+    <div className={`${trashBinMode && 'bin-mode'}`}>
       <div className="container">
         <Header
-          handleToggleDarkMode={setDarkMode}
           handleTrashBin={setTrashBinMode}
           binIsEmpty={notes.filter((note) => note.deleted).length === 0}
           trashBinMode={trashBinMode}
-		  clearTrashBin={clearTrashBin}
+          clearTrashBin={clearTrashBin}
         />
         <Search handleSearchNote={setSearchText} />
         <NotesList
