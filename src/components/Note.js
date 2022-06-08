@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { MdDeleteForever } from 'react-icons/md';
-import { AiTwotoneEdit } from 'react-icons/ai';
-import { IoSave } from 'react-icons/io5';
+import { TiDeleteOutline } from 'react-icons/ti';
+import { AiOutlineEdit } from 'react-icons/ai';
+import { FaRegSave } from 'react-icons/fa';
 import { FaTrashRestore } from 'react-icons/fa';
 
 function Note({
@@ -47,28 +47,28 @@ function Note({
         <small>{date}</small>
 
         {!deleted && (
-          <AiTwotoneEdit
+          <AiOutlineEdit
             onClick={() => setEditMode((previousEditMode) => !previousEditMode)}
             className="update-icon"
-            size="1.7em"
+            size="1.3em"
           />
         )}
 
-        <MdDeleteForever
+        <TiDeleteOutline
           onClick={() => handleDeleteNote(id)}
           className="delete-icon"
-          size="1.7em"
+          size="1.3em"
         />
 
         {editMode && (
-          <IoSave onClick={handSaveClick} className="save" size="1.5em" />
+          <FaRegSave onClick={handSaveClick} className="save" size="1.5em" />
         )}
 
         {deleted && (
           <FaTrashRestore
             onClick={() => handleRestoreNote(id)}
             className="save"
-            size="1.3em"
+            size="1em"
           />
         )}
       </div>

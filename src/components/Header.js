@@ -1,6 +1,6 @@
 import React from 'react';
-import { CgTrashEmpty, CgTrash } from 'react-icons/cg';
-import { TbTrashX } from 'react-icons/tb';
+import { FcEmptyTrash, FcFullTrash } from 'react-icons/fc';
+import { TiDelete } from 'react-icons/ti';
 
 const Header = ({
   handleTrashBin,
@@ -9,17 +9,17 @@ const Header = ({
   clearTrashBin
 }) => {
   const deleteIconClass = `delete-icon ${trashBinMode && 'bin-mode'}`;
-  const DeleteIcon = binIsEmpty ? CgTrashEmpty : CgTrash;
+  const DeleteIcon = binIsEmpty ? FcEmptyTrash : FcFullTrash;
   return (
     <div className="header">
-      <h6> POST ITS NOTES </h6>
-      {trashBinMode && !binIsEmpty && <TbTrashX onClick={clearTrashBin} />}
+      <h8>POST ITS NOTES</h8>
+      {trashBinMode && !binIsEmpty && <TiDelete onClick={clearTrashBin} size="2em" color='red'  />}
       <DeleteIcon
         onClick={() =>
           handleTrashBin((previousTrashBinMode) => !previousTrashBinMode)
         }
         className={deleteIconClass}
-        size="1.7em"
+        size="2em"
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { IoSave } from "react-icons/io5";
+import { FaRegSave } from 'react-icons/fa';
 
 function AddNote({ handleAddNote}) {
     const [noteText, setNoteText ] = useState('');
@@ -30,9 +30,9 @@ function AddNote({ handleAddNote}) {
             ></textarea>
             <div className='note-footer'>
                 <small>{characterLimit - noteText.length} Remaining</small>
-                <IoSave onClick={ handSaveClick}
+                <FaRegSave onClick={ handSaveClick}
                 className='save'
-                size='1.5em'/>
+                size='1.2em'/>
              
             </div>
         </div>
