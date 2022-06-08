@@ -513,6 +513,11 @@ textarea:focus {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bin-mode {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
 .header {
   display: flex;
   justify-content: space-between;

@@ -75,6 +75,10 @@ textarea:focus{
     @apply bg-black;
 }
 
+.bin-mode{
+    @apply bg-slate-400;
+}
+
 .header{
     @apply flex py-7 justify-between text-4xl ;
 }
