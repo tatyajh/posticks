@@ -15,7 +15,7 @@ function Header({ handleTrashBin, binIsEmpty, trashBinMode, clearTrashBin }) {
           onClick={clearTrashBin}
           className="btn btn-deleteForever btn-deleteForever:hover"
         >
-          DELETE
+          EMPTY BIN
         </button>
       )}
       <DeleteIcon
