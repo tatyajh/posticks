@@ -4,7 +4,7 @@
 
 
 .note {
-    @apply bg-yellow-100;
+    @apply bg-teal-200;
     @apply rounded-xl p-8 min-h-full;
     @apply flex flex-col;
     @apply justify-between;
@@ -29,7 +29,7 @@
 }
 
 .note-new{
-    @apply bg-green-300;
+    @apply bg-teal-400;
     @apply rounded-xl p-4 min-h-full;
     @apply flex flex-col;
     @apply justify-items-start;
@@ -60,26 +60,53 @@ textarea:focus{
  }
 
 .search{
-    @apply flex items-center bg-gray-300 rounded-xl p-1.5 mb-6;
+    @apply flex items-center bg-zinc-300 rounded-xl p-1.5 mb-6;
 }
 
 .search-input {
-    @apply border-none bg-gray-300 w-full ;
+    @apply border-none w-full ;
 }
 
 .search-input:focus{
-    @apply outline-none bg-transparent;
+    @apply outline-none;
 }
 
 .bin-mode{
-    @apply bg-cyan-50;
+    @apply bg-slate-400;
 }
 
 .header{
     @apply flex py-7 justify-between text-4xl ;
 }
 
+input{
+    @apply bg-transparent;
+}
+
 h8{
-    @apply text-black font-serif font-black;
+    @apply text-slate-300 font-serif font-black;
+}
+
+.btn {
+    @apply inline-block;
+    @apply py-1 px-2;
+    @apply w-1/6 h-10;    
+    @apply text-center;
+    @apply shadow-inner;
+    @apply text-center;
+    @apply text-sm;
+    @apply font-bold;
+    @apply rounded-bl-full;
+    @apply font-serif;
+    @apply shadow-inner;
+}
+
+.btn-deleteForever {
+    @apply bg-red-400 text-white;
+}
+
+.btn-deleteForever:hover {
+    @apply bg-red-600;
+    @apply rounded-lg;
 }
 

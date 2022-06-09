@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Note from './Note';
 import AddNote from './AddNote';
@@ -24,7 +26,6 @@ function NoteList({
         />
       ))}
       {!trashBinMode && <AddNote handleAddNote={handleAddNote} />}
-      
     </div>
   );
 }

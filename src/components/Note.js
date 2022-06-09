@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { FaRegSave } from 'react-icons/fa';
-import { FaTrashRestore } from 'react-icons/fa';
+import { FaRegSave, FaTrashRestore } from 'react-icons/fa';
 
 function Note({
   id,
@@ -38,7 +39,7 @@ function Note({
           placeholder="Type to add a new quote..."
           value={noteText}
           onChange={handleChange}
-        ></textarea>
+        />
       ) : (
         <span>{text}</span>
       )}

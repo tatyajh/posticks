@@ -1,3 +1,8 @@
+/* eslint-disable import/no-duplicates */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable no-shadow */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
@@ -41,7 +46,7 @@ function App() {
     const date = new Date();
     const newNote = {
       id: nanoid(),
-      text: text,
+      text,
       date: date.toLocaleDateString()
     };
     const newNotes = [...notes, newNote];
@@ -59,20 +64,7 @@ function App() {
     }
   }
 
-  const deleteNote = (id) => {
-    const note = notes.find((n) => n.id === id);
-    if (note && note.deleted) {
-      deleteForeverNote(id);
-    } else {
-      toggleNote(id, true);
-    }
-  };
-
-  const restoreNote = (id) => {
-    toggleNote(id, false);
-  };
-
-  const toggleNote = (id, deleted) => {
+  function toggleNote(id, deleted) {
     const note = notes.find((n) => n.id === id);
     if (note) {
       const newNotes = [
@@ -81,20 +73,33 @@ function App() {
       ];
       setNotes(newNotes);
     }
-  };
+  }
 
-  const deleteForeverNote = (id) => {
+  function deleteForeverNote(id) {
     const note = notes.find((n) => n.id === id);
     if (note) {
       const newNotes = notes.filter((note) => note.id !== id);
       setNotes(newNotes);
     }
-  };
+  }
 
-  const clearTrashBin = () => {
+  function deleteNote(id) {
+    const note = notes.find((n) => n.id === id);
+    if (note && note.deleted) {
+      deleteForeverNote(id);
+    } else {
+      toggleNote(id, true);
+    }
+  }
+
+  function restoreNote(id) {
+    toggleNote(id, false);
+  }
+
+  function clearTrashBin() {
     const newNotes = notes.filter((note) => !note.deleted);
     setNotes(newNotes);
-  };
+  }
   return (
     <div className={`${trashBinMode && 'bin-mode'}`}>
       <div className="container">
