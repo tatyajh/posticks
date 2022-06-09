@@ -1,9 +1,10 @@
 # POSTICKS NOTES
 
 Project developed for Moove it 2022 bootcamp with some tools like React, Tailwind CSS, HTML, ESLint, Prettier.
+
 The application allows you to create notes, edit them, delete them, restore them and search them.
 
-It has another interaction environment after being deleted, where you can delete one by one, restore one by one and empty bin.
+It has another interaction environment after being deleted, which can be accessed through the trash can icon where you can delete one by one, restore one by one and empty bin.
 
 Uses a storage API to persist data locally.
 
