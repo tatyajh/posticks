@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/posticks/static/css/main.9c4ad58b.css",
+    "main.js": "/posticks/static/js/main.280b216e.js",
+    "index.html": "/posticks/index.html",
+    "main.9c4ad58b.css.map": "/posticks/static/css/main.9c4ad58b.css.map",
+    "main.280b216e.js.map": "/posticks/static/js/main.280b216e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c4ad58b.css",
+    "static/js/main.280b216e.js"
+  ]
+}
