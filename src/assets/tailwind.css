@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-[#202124];
+    @apply bg-[#f4f4f6];
 }
 
 /* Keep-style sticky note card */
@@ -87,16 +87,16 @@ textarea:focus{
  }
 
 .search{
-    @apply flex items-center bg-[#303134] rounded-xl px-4 py-2.5 mb-6;
-    @apply shadow-sm;
+    @apply flex items-center bg-white rounded-xl px-4 py-2.5 mb-6;
+    @apply shadow-sm border border-black/10;
 }
 
 .search-icons {
-    @apply text-gray-400 mr-3;
+    @apply text-gray-500 mr-3;
 }
 
 .search input {
-    @apply bg-transparent w-full text-gray-100 placeholder-gray-400;
+    @apply bg-transparent w-full text-gray-800 placeholder-gray-500;
 }
 
 .search-input {
@@ -108,11 +108,22 @@ textarea:focus{
 }
 
 .bin-mode{
-    @apply bg-[#202124];
+    @apply bg-[#f4f4f6];
 }
 
 .header{
     @apply flex py-7 items-center justify-between text-4xl ;
+}
+
+.header-left{
+    @apply flex items-center gap-3;
+}
+
+.btn-back{
+    @apply flex items-center justify-center;
+    @apply text-gray-600 hover:text-gray-900 hover:bg-black/5;
+    @apply rounded-full p-2 -ml-2;
+    @apply transition-colors duration-150;
 }
 
 input{
@@ -120,7 +131,7 @@ input{
 }
 
 .app-title{
-    @apply text-gray-100 font-serif font-black text-2xl sm:text-3xl;
+    @apply text-gray-800 font-serif font-black text-2xl sm:text-3xl;
 }
 
 .btn {

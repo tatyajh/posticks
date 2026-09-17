@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { CgTrashEmpty, CgTrash } from 'react-icons/cg';
+import { IoArrowBack } from 'react-icons/io5';
 
 function Header({ handleTrashBin, binIsEmpty, trashBinMode, clearTrashBin }) {
   const deleteIconClass = `delete-icon ${trashBinMode && 'bin-mode'}`;
@@ -9,7 +10,21 @@ function Header({ handleTrashBin, binIsEmpty, trashBinMode, clearTrashBin }) {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <div className="header">
-      <h1 className="app-title">POST ITS NOTES</h1>
+      <div className="header-left">
+        {trashBinMode && (
+          <button
+            onClick={() => handleTrashBin(false)}
+            className="btn-back"
+            aria-label="Volver a notas"
+            title="Volver a notas"
+          >
+            <IoArrowBack size="1.3em" />
+          </button>
+        )}
+        <h1 className="app-title">
+          {trashBinMode ? 'PAPELERA' : 'POST ITS NOTES'}
+        </h1>
+      </div>
       {trashBinMode && !binIsEmpty && (
         <button
           onClick={clearTrashBin}
@@ -24,7 +39,7 @@ function Header({ handleTrashBin, binIsEmpty, trashBinMode, clearTrashBin }) {
         }
         className={deleteIconClass}
         size="1.7em"
-        color="#032649"
+        title={trashBinMode ? 'Volver a notas' : 'Ver papelera'}
       />
     </div>
   );
