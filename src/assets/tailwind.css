@@ -2,43 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply bg-[#202124];
+}
 
+/* Keep-style sticky note card */
 .note {
-    @apply bg-teal-200;
-    @apply rounded-xl p-8 min-h-full;
+    @apply rounded-xl p-4 min-h-full;
     @apply flex flex-col;
     @apply justify-between;
     @apply whitespace-pre-wrap;
-    
-   }
-
-.note-footer{
-    @apply flex; 
-    @apply items-center;
-    @apply justify-between;
+    @apply break-inside-avoid mb-4;
+    @apply shadow-md hover:shadow-lg;
+    @apply border border-black/5;
+    @apply transition-shadow duration-150;
 }
 
+.note span {
+    @apply text-gray-800 leading-relaxed;
+}
+
+.note textarea {
+    @apply text-gray-800;
+}
+
+.note-footer{
+    @apply flex;
+    @apply items-center;
+    @apply justify-between;
+    @apply pt-3 mt-2;
+    @apply border-t border-black/10;
+}
+
+.note-footer small {
+    @apply text-gray-600 text-xs;
+}
+
+/* Masonry-style responsive grid, Keep-like */
 .notes-list{
-    @apply grid;
+    @apply columns-1 sm:columns-2 md:columns-3 lg:columns-4;
     @apply gap-4;
-    @apply grid-cols-auto-fill;
 }
 
 .container{
-    @apply max-w-5xl mx-auto px-8 min-h-screen;
+    @apply max-w-5xl mx-auto px-4 sm:px-8 min-h-screen pb-16;
 }
 
+/* Persistent "Take a note..." toolbar at the top */
 .note-new{
-    @apply bg-teal-400;
-    @apply rounded-xl p-4 min-h-full;
+    @apply bg-white;
+    @apply rounded-xl p-4;
     @apply flex flex-col;
     @apply justify-items-start;
     @apply whitespace-pre-wrap;
+    @apply shadow-md hover:shadow-lg;
+    @apply border border-black/10;
+    @apply transition-shadow duration-150;
+    @apply mb-8;
+}
+
+.note-new textarea {
+    @apply text-gray-800;
 }
 
 textarea{
-    @apply border-none resize-none py-8 px-8
-    bg-transparent;
+    @apply border-none resize-none py-2 px-2
+    bg-transparent w-full;
 }
 
 textarea:focus{
@@ -46,21 +75,28 @@ textarea:focus{
 }
 
 .save{
-    @apply cursor-pointer;
+    @apply cursor-pointer text-gray-600 hover:text-gray-900;
 }
 
 .delete-icon{
-   @apply cursor-pointer;
-
+   @apply cursor-pointer text-gray-600 hover:text-gray-900;
 }
 
 .update-icon{
-    @apply cursor-pointer;
- 
+    @apply cursor-pointer text-gray-600 hover:text-gray-900 mr-2;
  }
 
 .search{
-    @apply flex items-center bg-zinc-300 rounded-xl p-1.5 mb-6;
+    @apply flex items-center bg-[#303134] rounded-xl px-4 py-2.5 mb-6;
+    @apply shadow-sm;
+}
+
+.search-icons {
+    @apply text-gray-400 mr-3;
+}
+
+.search input {
+    @apply bg-transparent w-full text-gray-100 placeholder-gray-400;
 }
 
 .search-input {
@@ -72,11 +108,11 @@ textarea:focus{
 }
 
 .bin-mode{
-    @apply bg-slate-400;
+    @apply bg-[#202124];
 }
 
 .header{
-    @apply flex py-7 justify-between text-4xl ;
+    @apply flex py-7 items-center justify-between text-4xl ;
 }
 
 input{
@@ -84,21 +120,18 @@ input{
 }
 
 .app-title{
-    @apply text-slate-300 font-serif font-black;
+    @apply text-gray-100 font-serif font-black text-2xl sm:text-3xl;
 }
 
 .btn {
     @apply inline-block;
-    @apply py-1 px-2;
-    @apply w-1/6 h-10;    
-    @apply text-center;
-    @apply shadow-inner;
+    @apply py-2 px-4;
     @apply text-center;
     @apply text-sm;
     @apply font-bold;
-    @apply rounded-bl-full;
+    @apply rounded-full;
     @apply font-serif;
-    @apply shadow-inner;
+    @apply shadow-sm;
 }
 
 .btn-deleteForever {
@@ -107,6 +140,5 @@ input{
 
 .btn-deleteForever:hover {
     @apply bg-red-600;
-    @apply rounded-lg;
 }
 

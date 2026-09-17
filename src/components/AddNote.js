@@ -24,7 +24,7 @@ function AddNote({ handleAddNote }) {
   return (
     <div className="note-new">
       <textarea
-        placeholder="Type to add a new quote..."
+        placeholder="Take a note..."
         value={noteText}
         onChange={handleChange}
       />

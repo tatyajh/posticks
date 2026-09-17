@@ -13,20 +13,22 @@ function NoteList({
   trashBinMode
 }) {
   return (
-    <div className="notes-list">
-      {notes.map((note) => (
-        <Note
-          key={note.id}
-          id={note.id}
-          text={note.text}
-          date={note.date}
-          deleted={note.deleted}
-          handleDeleteNote={handleDeleteNote}
-          handleUpdateNote={handleUpdateNote}
-          handleRestoreNote={handleRestoreNote}
-        />
-      ))}
+    <div>
       {!trashBinMode && <AddNote handleAddNote={handleAddNote} />}
+      <div className="notes-list">
+        {notes.map((note) => (
+          <Note
+            key={note.id}
+            id={note.id}
+            text={note.text}
+            date={note.date}
+            deleted={note.deleted}
+            handleDeleteNote={handleDeleteNote}
+            handleUpdateNote={handleUpdateNote}
+            handleRestoreNote={handleRestoreNote}
+          />
+        ))}
+      </div>
     </div>
   );
 }
