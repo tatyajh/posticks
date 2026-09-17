@@ -83,7 +83,7 @@ input{
     @apply bg-transparent;
 }
 
-h8{
+.app-title{
     @apply text-slate-300 font-serif font-black;
 }
 

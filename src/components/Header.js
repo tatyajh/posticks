@@ -9,7 +9,7 @@ function Header({ handleTrashBin, binIsEmpty, trashBinMode, clearTrashBin }) {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <div className="header">
-      <h8>POST ITS NOTES</h8>
+      <h1 className="app-title">POST ITS NOTES</h1>
       {trashBinMode && !binIsEmpty && (
         <button
           onClick={clearTrashBin}
