@@ -172,7 +172,14 @@ textarea:focus{
 }
 
 .delete-icon{
-   @apply cursor-pointer text-gray-600 hover:text-gray-900;
+   @apply flex items-center justify-center;
+   @apply cursor-pointer text-gray-600 hover:text-gray-900 hover:bg-black/5;
+   @apply rounded-full p-2 -mr-2;
+   @apply transition-colors duration-150;
+}
+
+.delete-icon.bin-mode{
+   @apply text-red-600;
 }
 
 .update-icon{
