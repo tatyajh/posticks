@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { FaRegSave, FaTrashRestore } from 'react-icons/fa';
+import { MdOutlinePushPin, MdPushPin, MdOutlinePalette } from 'react-icons/md';
 
-// Google Keep-style pastel palette. Notes have no color field in the data
-// model, so we deterministically derive a color from the note id — this is
-// purely presentational and does not touch app state/logic.
+// Google Keep-style pastel palette. Older notes have no color field in the
+// data model, so we deterministically derive a fallback color from the note
+// id — this keeps existing notes looking fine while new notes can pick a
+// color explicitly via the palette picker below.
 const NOTE_COLORS = [
   '#faf7b7', // yellow
   '#fdd663', // amber
@@ -33,14 +35,20 @@ function Note({
   text,
   date,
   deleted,
+  pinned,
+  color,
   handleDeleteNote,
   handleUpdateNote,
-  handleRestoreNote
+  handleRestoreNote,
+  handleTogglePin,
+  handleSetColor
 }) {
   const [editMode, setEditMode] = useState(false);
   const [noteText, setNoteText] = useState(text);
+  const [showPalette, setShowPalette] = useState(false);
 
   const characterLimit = 250;
+  const noteColor = color || colorForId(id);
 
   const handleChange = (event) => {
     if (characterLimit - event.target.value.length >= 0) {
@@ -55,11 +63,51 @@ function Note({
     }
   };
 
+  const PinIcon = pinned ? MdPushPin : MdOutlinePushPin;
+
   return (
     <div
-      className="note"
-      style={{ backgroundColor: deleted ? '#e8eaed' : colorForId(id) }}
+      className={`note ${pinned ? 'note-pinned' : ''}`}
+      style={{ backgroundColor: deleted ? '#e8eaed' : noteColor }}
     >
+      {!deleted && (
+        <div className="note-actions">
+          <PinIcon
+            onClick={() => handleTogglePin(id)}
+            className={`pin-icon ${pinned ? 'pin-icon-active' : ''}`}
+            size="1.2em"
+            title={pinned ? 'Quitar de fijadas' : 'Fijar nota'}
+          />
+          <div className="palette-wrapper">
+            <MdOutlinePalette
+              onClick={() => setShowPalette((prev) => !prev)}
+              className="palette-icon"
+              size="1.2em"
+              title="Cambiar color"
+            />
+            {showPalette && (
+              <div className="palette-menu">
+                {NOTE_COLORS.map((swatch) => (
+                  <button
+                    key={swatch}
+                    type="button"
+                    className={`palette-swatch ${
+                      swatch === noteColor ? 'palette-swatch-active' : ''
+                    }`}
+                    style={{ backgroundColor: swatch }}
+                    aria-label={`Color ${swatch}`}
+                    onClick={() => {
+                      handleSetColor(id, swatch);
+                      setShowPalette(false);
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {editMode ? (
         <textarea
           placeholder="Type to add a new quote..."
@@ -67,7 +115,7 @@ function Note({
           onChange={handleChange}
         />
       ) : (
-        <span>{text}</span>
+        <span className="note-text">{text}</span>
       )}
 
       <div className="note-footer">

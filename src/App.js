@@ -64,6 +64,28 @@ function App() {
     }
   }
 
+  function togglePinNote(id) {
+    const note = notes.find((n) => n.id === id);
+    if (note) {
+      const newNotes = [
+        ...notes.filter((note) => note.id !== id),
+        { ...note, pinned: !note.pinned }
+      ];
+      setNotes(newNotes);
+    }
+  }
+
+  function setNoteColor(id, color) {
+    const note = notes.find((n) => n.id === id);
+    if (note) {
+      const newNotes = [
+        ...notes.filter((note) => note.id !== id),
+        { ...note, color }
+      ];
+      setNotes(newNotes);
+    }
+  }
+
   function toggleNote(id, deleted) {
     const note = notes.find((n) => n.id === id);
     if (note) {
@@ -121,6 +143,8 @@ function App() {
           handleDeleteNote={deleteNote}
           handleUpdateNote={updateNote}
           handleRestoreNote={restoreNote}
+          handleTogglePin={togglePinNote}
+          handleSetColor={setNoteColor}
           trashBinMode={trashBinMode}
         />
       </div>

@@ -13,17 +13,110 @@ body {
     @apply justify-between;
     @apply whitespace-pre-wrap;
     @apply break-inside-avoid mb-4;
-    @apply shadow-md hover:shadow-lg;
+    @apply shadow-md hover:shadow-lg hover:-translate-y-0.5;
     @apply border border-black/5;
-    @apply transition-shadow duration-150;
+    @apply relative;
+    @apply transition-all duration-200 ease-out;
+}
+
+.note-pinned {
+    @apply ring-1 ring-black/10;
 }
 
 .note span {
     @apply text-gray-800 leading-relaxed;
 }
 
+.note-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 12;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
 .note textarea {
     @apply text-gray-800;
+}
+
+/* Hover-reveal pin/color actions, Keep-style */
+.note-actions {
+    @apply flex items-center justify-end gap-2;
+    @apply mb-2 -mt-1 -mr-1;
+    @apply opacity-0;
+    @apply transition-opacity duration-150;
+}
+
+.note:hover .note-actions,
+.note:focus-within .note-actions {
+    @apply opacity-100;
+}
+
+.note-pinned .note-actions {
+    @apply opacity-100;
+}
+
+/* Touch devices have no hover, so keep actions visible there */
+@media (hover: none) {
+    .note-actions {
+        @apply opacity-100;
+    }
+}
+
+.pin-icon {
+    @apply cursor-pointer text-gray-500 hover:text-gray-900;
+}
+
+.pin-icon-active {
+    @apply text-gray-800 opacity-100;
+}
+
+.palette-wrapper {
+    @apply relative flex items-center;
+}
+
+.palette-icon {
+    @apply cursor-pointer text-gray-500 hover:text-gray-900;
+}
+
+.palette-menu {
+    @apply absolute right-0 top-6 z-10;
+    @apply flex flex-wrap gap-2 w-32;
+    @apply bg-white rounded-lg shadow-lg border border-black/10 p-2;
+}
+
+.palette-swatch {
+    @apply w-6 h-6 rounded-full border border-black/10 cursor-pointer;
+    @apply transition-transform duration-100;
+}
+
+.palette-swatch:hover {
+    @apply scale-110;
+}
+
+.palette-swatch-active {
+    @apply ring-2 ring-offset-1 ring-gray-500;
+}
+
+/* Section headers for pinned / other notes, Keep-style */
+.section-title {
+    @apply text-xs font-bold tracking-widest text-gray-500 uppercase;
+    @apply mb-3 mt-2;
+}
+
+/* Empty states */
+.empty-state {
+    @apply flex flex-col items-center justify-center text-center;
+    @apply text-gray-400 py-20;
+}
+
+.empty-state p {
+    @apply text-lg font-serif text-gray-500 mb-1;
+}
+
+.empty-state small {
+    @apply text-sm text-gray-400;
 }
 
 .note-footer{
